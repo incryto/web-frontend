@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './signin.css'
+import './t.css'
 import {Button } from 'semantic-ui-react'
 
 async function loginuser(email) {
@@ -36,7 +36,7 @@ const Signin = () => {
                         <label >Email</label>
                         <br></br>
                         <br></br>
-                        <input type='email' onChange={e => {setemail(e.target.value)}}></input>
+                        <input type='email' onChange={e=> {setemail(e.target.value)}}></input>
                     </div>
                     <br></br>
                     <br></br>

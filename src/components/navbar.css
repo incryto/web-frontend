@@ -46,6 +46,9 @@ a {
 .nav_links_container {
     display:flex;
     flex-direction: row;
+    
+
+    padding-left:40px;
 }
 
 .nav_sign{
@@ -82,11 +85,17 @@ a {
 
 
 
-.up_modal{
+/* .up_modal{
     height:150px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-}
+} */
+
+/* .up_modal input{
+    position:absolute;
+    left:130px;
+} */
 /* .up_modal form{
     display: flex;
     flex-direction: row;;
@@ -94,7 +103,7 @@ a {
 .ema {
     margin-right: 30px;
 } */
-.up_input{
+/* .up_input{
     justify-content: center;
 }
 .up_btn {
@@ -163,4 +172,4 @@ label{
 }
 .s_btn button:hover{
     background-color: rgb(178, 12, 12);
-}
+} */

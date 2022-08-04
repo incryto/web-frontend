@@ -68,6 +68,11 @@
 
     margin-top: 1.5rem;
 } */
+.get_email{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
 
 .header_input {
     width: 100%;

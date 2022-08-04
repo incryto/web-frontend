@@ -1,73 +1,68 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Modal, Form, Input, TextArea, Select, Icon } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom'
 
 import axios from 'axios'
 
 import './navbar.css'
-import logo from '../assets/logo.png';
+import logo from '../assets/midhun.png';
 import { CgProfile } from 'react-icons/cg';
 
 
 async function loginuser(email) {
     return fetch('http://localhost:8080/v1/login', {
-        method:'post',
-        headers:{
-            'Content-Type':'application/json'
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify({email})
-    }).then(res=> { res.json()})
-    .then(data => {return data})
+        body: JSON.stringify({ email })
+    }).then(res => { res.json() })
+        .then(data => { return data })
 }
 
-async function userotp(email,otp) {
+async function Userotp(email, otp) {
+
     console.log(otp)
-    // const data  = await fetch('http://localhost:8080/v1/otp/verify', {
-    //     method:'post',
-    //     headers:{
-    //         'Content-Type':'application/json'
-    //     },
-    //     body:JSON.stringify({email,otp})
-    // })
     axios.post('http://localhost:8080/v1/otp/verify', {
         email: email,
         otp: otp
-      })
-      .then(function (data) {
-        console.log(data);
-        if(data.data.response_code === 200){
-            localStorage.setItem('items', JSON.stringify(data.data.response.token));
-            if(data.data.response.completion == 0)
-            {
-                
+    })
+        .then(function (data) {
+            console.log(data);
+            if (data.data.response_code === 200) {
+                localStorage.setItem('items', JSON.stringify(data.data.response.token));
+                return data.data.response.completion
+
+
             }
-        }
-        else{
-            alert(data.data.message)
-            console.log(localStorage.getItem('items'))
-            
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+            else {
+                alert(data.data.message)
+                console.log(localStorage.getItem('items'))
+
+
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
 }
 const Navbar = () => {
+    let nav = useNavigate()
 
-    
     const [email, setemail] = useState()
     const [otp, setotp] = useState()
     const [firstOpen, setFirstOpen] = useState(false)
-    const [secondOpen, setSecondOpen] =useState(false)
+    const [secondOpen, setSecondOpen] = useState(false)
     const [thirdOpen, setThirdOpen] = useState(false)
 
-    
+
 
     async function handlesubmit(e) {
         e.preventDefault()
         const res = await loginuser(email)
         console.log(res)
-        if (res.code == 200){
+        if (res.code == 200) {
             setSecondOpen(true)
             setFirstOpen(false)
         }
@@ -76,9 +71,16 @@ const Navbar = () => {
     async function handleotp(e) {
         e.preventDefault()
         console.log(otp)
-        const data = await userotp(email,otp)
+        const data = await Userotp(email, otp)
         console.log(data)
-        
+        if (data == 1) {
+            console.log("Jopi")
+        }
+        else {
+            console.log("Nava");
+            nav('/signin')
+        }
+
     }
 
     const [signcheck, setsign] = useState(true);
@@ -95,21 +97,21 @@ const Navbar = () => {
                     <form onSubmit={handlesubmit}>
                         <div className='up_input'>
                             <label >Email</label>
-                            <input type='email' onChange={e =>setemail(e.target.value)}></input>
+                            <input type='email' onChange={e => setemail(e.target.value)}></input>
                             <button type='submit'>Get Otp</button></div></form>
-                            <form onSubmit={handleotp}><div>
-                            <br></br>
-                            <label>Otp</label>
-                            <input type='text' onChange={e => setotp(e.target.value)}></input>
-                            <button type='submit'>Verify Otp</button>
-                        </div>
+                    <form onSubmit={handleotp}><div>
+                        <br></br>
+                        <label>Otp</label>
+                        <input type='text' onChange={e => setotp(e.target.value)}></input>
+                        <button type='submit'>Verify Otp</button>
+                    </div>
                         {/* <input className='ema' type='email'></input>
                         <button type='submit'>Verify</button> */}
                         <br></br>
                         <br></br>
                         <div className='up_btn'>
-                        <Button onClick={() => setFirstOpen(false)} negative>Cancel</Button>
-                            <button className ='proc_btn' onClick={() =>{setFirstOpen(false); setThirdOpen(true)}}>Proceed</button>
+                            <Button onClick={() => setFirstOpen(false)} negative>Cancel</Button>
+                            <button className='proc_btn' onClick={() => { setFirstOpen(false); setThirdOpen(true) }}>Proceed</button>
                         </div>
                         {/* <Button  type = 'submit' onClick={() => { setSecondOpen(true); setFirstOpen(false); }} primary>
                         Proceed <Icon name='right chevron' />
@@ -190,7 +192,7 @@ const Navbar = () => {
                 <div className='nav_sign'>
                     {signcheck
                         ? <><p>Sign in</p>
-                           <button type='button' onClick={() => setFirstOpen(true)}>Sign up</button>
+                            <button type='button' onClick={() => setFirstOpen(true)}>Sign up</button>
                             {/* <Popup trigger=  {false}>
                 <h1>clearly</h1>
                 </Popup> */}
