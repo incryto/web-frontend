@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Modal, Form, Input, TextArea, Select, Icon } from 'semantic-ui-react'
 
-import Navbar from './components/Navbar'
+import Navbar from '../Navbar'
 import './otp.css'
 import axios from 'axios'
 

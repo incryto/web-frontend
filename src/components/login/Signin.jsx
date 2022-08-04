@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 import { Button, Modal, Form, Input, TextArea, Select, Icon } from 'semantic-ui-react'
-import Navbar from './components/Navbar'
+import Navbar from '../Navbar'
 import './signin.css'
 
 async function userinfo(fname,lname,phone){

@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Bucket from './Bucket';
 import Profile from './Profile';
-import Signin from './Signin';
-import Otp from './Otp'
+import Signin from './components/login/Signin';
+import Otp from './components/login/Otp'
 import './index.css';
 import Create_bucket from './Create_bucket';
 import Test from './Test';
