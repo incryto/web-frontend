@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color:unset;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    
+    
+
+    padding: 2rem 6rem ;
+    width: 100%;
+
+    position: sticky;
+    top:0;
+    height:80px;
+    background-color: rgb(0, 0, 0,0.4);
+    
+}
+
+.nav_links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.nav_logo {
+    margin-right: 2 rem;
+}
+
+.nav_logo img {
+    width: 92.56 px;
+    height: 46.02px;
+}
+
+.nav_links_container {
+    display:flex;
+    flex-direction: row;
+}
+
+.nav_sign{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav_links_container p,
+.nav_sign p {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin: 0 1rem;
+    cursor: pointer;
+    
+}
+
+.nav_sign button {
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background: #FF4820;
+    font-family: var(--font-family);
+    font-weight:500;
+    font-size:18px;
+    border-radius: 5px;
+    border:none;
+    outline:0;
+    cursor:pointer;
+}
+
+
+
+.up_modal{
+    height:150px;
+    display: flex;
+    justify-content: center;
+}
+/* .up_modal form{
+    display: flex;
+    flex-direction: row;;
+}
+.ema {
+    margin-right: 30px;
+} */
+.up_input{
+    justify-content: center;
+}
+.up_btn {
+   
+    display: flex;
+    justify-content: space-between;
+}
+.proc_btn{
+    background-color: rgb(89, 135, 214);
+    border:none;
+    width:90px;
+    border-radius:9px;
+    color:white;
+    font-weight: bold;
+}
+#form-input-control-error-email{
+    min-width: 340px;
+    min-height: 40px;
+}
+
+.otp_modal{
+    height: 150px;
+    display:flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction:column;
+    
+}
+.otp_input{
+    margin-bottom:20px;
+}
+.otp_modal button {
+    background-color: rgb(48, 158, 98);
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    width: 80px;
+    border:none;
+    cursor: pointer;
+}
+label{
+    margin-right: 20px;
+}
+.otp_modal input{
+    min-width: 340px;
+    min-height: 40px;
+
+}
+.info_modal {
+    height: 250px;
+    padding: 30px;
+}
+.s_btn{
+    display:flex;
+    justify-content: center;
+}
+.s_btn button {
+    background-color: rgb(194, 12, 12);
+    border-radius: 7px;
+    color: white;
+    height: 40px;
+    width: 80px;
+    border:none;
+    cursor: pointer;
+}
+.s_btn button:hover{
+    background-color: rgb(178, 12, 12);
+}
