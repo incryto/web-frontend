@@ -5,6 +5,11 @@
 
 }
 
+.home_otp_image{
+    height: 400;
+    margin-right: 4em;
+    margin-left: 6em;
+}
 .home {
     display: flex;
     flex-direction: row;

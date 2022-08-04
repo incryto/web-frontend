@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import './navbar.css'
 import logo from '../assets/midhun.png';
-import { CgProfile } from 'react-icons/cg';
+// import { CgProfile } from 'react-icons/cg';
 
 
 async function loginuser(email) {
@@ -56,6 +56,19 @@ const Navbar = () => {
     const [secondOpen, setSecondOpen] = useState(false)
     const [thirdOpen, setThirdOpen] = useState(false)
 
+    const [isSigned,setIsSigned] = useState(false)
+    useEffect(() => {
+      init()
+    });
+    async function init() {
+       const token =   localStorage.getItem('token')
+       console.log(token)
+       if(token!=null){
+        console.log("user already signed in")
+        setIsSigned(true)
+       }
+    }
+  
 
 
     async function handlesubmit(e) {
@@ -186,11 +199,12 @@ const Navbar = () => {
                     </div>
                     <div className='nav_links_container'>
                         <p><a href="/">Home</a></p>
-                        <p><a href="/bucket">Buckets</a></p>
+
+                        {isSigned?<p><a href="/bucket">Buckets</a></p>:<></>}
                     </div>
                 </div>
                 <div className='nav_sign'>
-                    {signcheck
+                    {!isSigned
                         ? <><p>Sign in</p>
                             <button type='button' onClick={() => setFirstOpen(true)}>Sign up</button>
                             {/* <Popup trigger=  {false}>
@@ -198,7 +212,7 @@ const Navbar = () => {
                 </Popup> */}
 
                         </>
-                        : <><CgProfile color='#fff' size={32} /></>
+                        : <p>profile</p>
                     }
                 </div>
             </div>

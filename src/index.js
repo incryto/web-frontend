@@ -28,7 +28,7 @@ export default function App(){
           <Route index element={<Create_bucket />} />
         </Route>
 
-        <Route path="/signin">
+        <Route path="/profile-completion">
           <Route index element={<Signin/>} />
         </Route>
 
