@@ -59,7 +59,7 @@ const Navbar = () => {
     const [isSigned,setIsSigned] = useState(false)
     useEffect(() => {
       init()
-    });
+    },[1]);
     async function init() {
        const token =   localStorage.getItem('token')
        console.log(token)
