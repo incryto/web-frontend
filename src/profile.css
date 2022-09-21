@@ -112,3 +112,7 @@ th{
     display: flex;
     flex-direction: column;
 }
+
+.shashi{
+    padding-left: 3em;
+}

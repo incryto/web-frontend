@@ -3,6 +3,8 @@ import './profile.css';
 // import Profilenavbar from './components/Profilenavbar';
 import Navbar from './components/Navbar';
 
+import Bucket from './Bucket';
+
 const Profile = () => {
   return (
     <div className='profile_main'>
@@ -25,26 +27,6 @@ const Profile = () => {
         </div>
 
         <div className='portfolio'>
-          {/* <div className='portfolio_title'>
-            <h2> Portfolio</h2>
-          </div>
-          <div className='portfolio_content'>
-            <div className='port_heading'>
-              <h3>Bucket Name</h3>
-              <h3>Purchase Amount</h3>
-              <h3>Current Value</h3>
-              <h3>Change</h3>
-              <h3>Quantity</h3>
-            </div>
-            <div className='port_list'>
-              <h3>bucket asdf1</h3>
-              <h3>asldfjladjsdfasfl</h3>
-              <h3>safkjsldkjfa</h3>
-              <h3>alskfjsdklfj</h3>
-              <h3>dalsfjldsj</h3>
-            </div>
-
-          </div> */}
           <table>
             <tr>
               <th>Bucket Name</th>
@@ -70,11 +52,12 @@ const Profile = () => {
             </tr>
           </table>
         </div>
-
-        <div className='buckets'>
-          
-        </div>
       </div>
+      <h2 className='shashi'>Created buckets</h2>
+      <Bucket filter={
+      
+          {"creator_id":localStorage.getItem('user_id').substring(1,localStorage.getItem('user_id').length-1)}
+        }/>
     </div>
   )
 }

@@ -44,11 +44,22 @@ const Home = () => {
     event.preventDefault();
     // 👇️ value of input field
     console.log("email ", email);
+    setOtpPage(true)
+      setSignin(false)
     const res  =await axios.post('http://localhost:8080/v1/login', { email: email })
     console.log(res)
     if(res.data.response_code==200){
-      setOtpPage(true)
-      setSignin(false)
+      toast(res.data.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        type: "success"
+      });
     }else{
       console.log("message error")
       console.log(res.data.message)
@@ -75,10 +86,24 @@ const Home = () => {
     const res  =await axios.post('http://localhost:8080/v1/otp/verify', { email: email ,otp:otp})
     console.log(res)
     if(res.data.response_code==200){
+      
+      toast(res.data.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        type: "success"
+      });
       setOtpPage(false)
       setSignin(true)
       setIsSigned(true)
+      console.log(res.data.response.user_id)
       localStorage.setItem('token', JSON.stringify(res.data.response.token));
+      localStorage.setItem('user_id', JSON.stringify(res.data.response.user_id));
       if(res.data.response.completion==0){
         nav('/profile-completion')
       }
@@ -149,7 +174,7 @@ const HomeContent = ({handleChange,onpressed,email,isSigned}) => {
 const OtpVerification = ({handleChange,onpressed,otp}) => {
   return (
     <div className="home section__padding" id="home">
-      <div className="home_content">
+      <div className="home_content-otp">
         <h1 className="gradient__text">Get verified using your otp</h1>
 
         <div className="home_text">

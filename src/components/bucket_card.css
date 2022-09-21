@@ -24,7 +24,7 @@
     flex-direction: row;
 }
 .card_table{
-    width:70%;
+    width:50%;
     min-height: 100px;
 }
 .bucket_table th,
@@ -36,7 +36,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 50%;
+    padding-bottom: 2em;
 }
 .value_head{
     text-align: center;
@@ -46,4 +47,9 @@
     font-size:45px;
     color:rgb(223, 201, 82);
     font-weight: 400;
+}
+
+.card_table .title{
+    color:rgb(223, 201, 82);
+
 }

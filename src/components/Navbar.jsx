@@ -55,7 +55,7 @@ const Navbar = () => {
     const [firstOpen, setFirstOpen] = useState(false)
     const [secondOpen, setSecondOpen] = useState(false)
     const [thirdOpen, setThirdOpen] = useState(false)
-
+    const [profilePage,setProfilePage] = useState(false)
     const [isSigned,setIsSigned] = useState(false)
     useEffect(() => {
       init()
@@ -100,98 +100,7 @@ const Navbar = () => {
     return (
         <>
 
-            <Modal
-                onClose={() => setFirstOpen(false)}
-                onOpen={() => setFirstOpen(true)}
-                open={firstOpen}
-            >
-                <Modal.Header>Log In/Sign Up</Modal.Header>
-                <div className='up_modal'>
-                    <form onSubmit={handlesubmit}>
-                        <div className='up_input'>
-                            <label >Email</label>
-                            <input type='email' onChange={e => setemail(e.target.value)}></input>
-                            <button type='submit'>Get Otp</button></div></form>
-                    <form onSubmit={handleotp}><div>
-                        <br></br>
-                        <label>Otp</label>
-                        <input type='text' onChange={e => setotp(e.target.value)}></input>
-                        <button type='submit'>Verify Otp</button>
-                    </div>
-                        {/* <input className='ema' type='email'></input>
-                        <button type='submit'>Verify</button> */}
-                        <br></br>
-                        <br></br>
-                        <div className='up_btn'>
-                            <Button onClick={() => setFirstOpen(false)} negative>Cancel</Button>
-                            <button className='proc_btn' onClick={() => { setFirstOpen(false); setThirdOpen(true) }}>Proceed</button>
-                        </div>
-                        {/* <Button  type = 'submit' onClick={() => { setSecondOpen(true); setFirstOpen(false); }} primary>
-                        Proceed <Icon name='right chevron' />
-                    </Button> */}
-
-                    </form>
-                </div>
-                {/* <Modal.Actions>
-                    <Button onClick={() => setFirstOpen(false)} negative>Cancel</Button>
-                    <Button onClick={() => { setSecondOpen(true); setFirstOpen(false); }} primary>
-                        Proceed <Icon name='right chevron' />
-                    </Button>
-                </Modal.Actions> */}
-
-            </Modal>
-
-            <Modal
-                onClose={() => setSecondOpen(false)}
-                open={secondOpen}
-                size='small'
-            >
-                <Modal.Header>OTP Verification</Modal.Header>
-                <div className='otp_modal'>
-                    <div className='otp_input'>
-                        <label >Enter Otp</label>
-                        <input type='text'></input>
-                    </div>
-                    <button type='submit'>Verify</button>
-
-                </div>
-                <Modal.Actions>
-                    <Button onClick={() => { setSecondOpen(false); setThirdOpen(true); }} primary>
-                        Proceed <Icon name='right chevron' />
-                    </Button>
-                </Modal.Actions>
-            </Modal>
-
-            <Modal
-                onClose={() => setThirdOpen(false)}
-                open={thirdOpen}>
-
-
-                <div className='info_modal'>
-                    <Form>
-                        <Form.Group unstackable widths={2}>
-                            <Form.Input label='First name' placeholder='First name' />
-                            <Form.Input label='Last name' placeholder='Last name' />
-                        </Form.Group>
-                        <Form.Group widths={2}>
-                            <Form.Input label='Phone' placeholder='Phone' />
-                        </Form.Group>
-                    </Form>
-                    <br></br>
-                    <div className='s_btn'>
-                        <button type='submit' >SAVE</button>
-                    </div>
-
-
-                </div>
-
-
-                <Modal.Actions>
-                    <Button onClick={() => { setSecondOpen(false); setFirstOpen(false); }} primary>
-                        Proceed <Icon name='right chevron' />
-                    </Button>
-                </Modal.Actions>
-            </Modal>
+           
             <div className="navbar">
                 <div className='nav_links'>
                     <div className='nav_logo'>
@@ -201,18 +110,22 @@ const Navbar = () => {
                         <p><a href="/">Home</a></p>
 
                         {isSigned?<p><a href="/bucket">Buckets</a></p>:<></>}
+                        {isSigned?<p><a href="/create">Create bucket</a></p>:<></>}
                     </div>
                 </div>
                 <div className='nav_sign'>
                     {!isSigned
                         ? <><p>Sign in</p>
-                            <button type='button' onClick={() => setFirstOpen(true)}>Sign up</button>
-                            {/* <Popup trigger=  {false}>
-                <h1>clearly</h1>
-                </Popup> */}
-
+                            <button type='button' onClick={() => setFirstOpen(true) }>Sign up</button>
+                           
                         </>
-                        : <p>profile</p>
+
+                        :  <><p><a href="/profile">Profile</a></p>
+                            <button type='button' onClick={()=>{
+                                localStorage.removeItem('token')
+                            }}><a href="/">logout</a></button></>
+                           
+                    
                     }
                 </div>
             </div>

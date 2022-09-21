@@ -12,8 +12,6 @@
 .bucket_list_box{
     padding:24px;
     padding-top:35px;
-    display: flex;
-    flex-direction: row;
     justify-content: space-around;
     margin: 30px 20px 20px 0;
     width: 100%;
@@ -43,4 +41,16 @@
 .or_p{
     color:white;
     font-size: large;
+}
+
+.bucket-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2em;
+}
+
+
+tbody{
+    min-width: 100%;
 }

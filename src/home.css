@@ -135,6 +135,29 @@
     height:100%;
 }
 
+.home_content-otp{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin:0 5rem 0; flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    margin:0 5rem 0;
+}
+
+.home_content-otp h1{
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size:62px;
+    line-height:75px;
+    letter-spacing: -0.04em;
+}
 @media screen and (max-width: 1050px) {
     .gpt3__header {
         flex-direction: column;
