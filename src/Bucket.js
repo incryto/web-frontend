@@ -10,6 +10,7 @@ import { Divider } from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import PurchaseContainer from "./components/purchase_cointainer";
 
 const Bucket = ({filter}) => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const Bucket = ({filter}) => {
   const [buckets, setBuckets] = useState([]);
 
   const [loaded, setLoaded] = useState(false);
+
 
   async function init() {
     const token = localStorage.getItem("token");
@@ -61,6 +63,7 @@ const Bucket = ({filter}) => {
       {" "}
       <ToastContainer />
       <div className="buck_main">
+    
        {filter==null? <Navbar />:<></>}
 
         <div className="buck_content">

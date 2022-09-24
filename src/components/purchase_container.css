@@ -1,0 +1,21 @@
+.container-inner{
+    height: 30%;
+    width: 30%;
+    background-color:rgb(223, 201, 82);
+    color: darkblue;
+    padding: 2em;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+}
+
+.container-main{
+    overflow: hidden;
+    background:-ms-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 100%);
+    background:radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 100%); 
+}
+
+.purchase {
+    display: flex;
+    flex-direction: row;
+}

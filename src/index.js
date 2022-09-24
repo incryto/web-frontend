@@ -9,6 +9,7 @@ import Otp from './components/login/Otp'
 import './index.css';
 import Create_bucket from './Create_bucket';
 import Test from './Test';
+import PurchaseContainer from './components/purchase_cointainer';
 
 
 
@@ -39,6 +40,9 @@ export default function App(){
         
         <Route path="/test">
           <Route index element={<Test/>} />
+        </Route>
+        <Route path="/purchase">
+          <Route index element={<PurchaseContainer/>} />
         </Route>
 
       </Routes>

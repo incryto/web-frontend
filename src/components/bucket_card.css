@@ -4,6 +4,25 @@
     padding:15px;
     border-radius: 9px;
 }
+
+.crt_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.crt_btn button {
+    margin-top: 1em;
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background: #FF4820;
+    font-family: var(--font-family);
+    font-weight:500;
+    font-size:18px;
+    border-radius: 5px;
+    border:none;
+    outline:0;
+    cursor:pointer;
+}
 .card_header{
     display: flex;
     flex-direction: column;

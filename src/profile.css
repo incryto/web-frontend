@@ -27,8 +27,15 @@
 
 }
 
+.portfolio th{
+    color: rgb(223, 201, 82);
+}
+
 .user_icon {
-    width: 15%;
+    width: 10%;
+    align-items: center;
+    align-self: center;
+    padding-left: 1em;
 
 }
 
@@ -111,6 +118,12 @@ th{
 
     display: flex;
     flex-direction: column;
+}
+.loss{
+    color: red
+}
+.profit{
+    color: green
 }
 
 .shashi{
